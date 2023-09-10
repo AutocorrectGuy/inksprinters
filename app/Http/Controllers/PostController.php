@@ -23,7 +23,7 @@ class PostController extends Controller
    */
   public function create(Request $request)
   {
-    return view('create', compact(['categories' => Category::all()]));
+    return view('create', ['categories' => Category::all()]);
   }
 
   /**
