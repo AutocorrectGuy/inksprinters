@@ -13,7 +13,7 @@ class PostSeeder extends Seeder
    */
   public function run(): void
   {
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < 11; $i++) {
       DB::table('posts')->insert([
         'title' => fake()->title(),
         'category_id' => rand(1,15),
