@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  
-  <script src="{{asset('/build/assets/app-dbe23e4c.js')}}" defer></script>
-  <link rel="stylesheet" href="{{asset('/build/assets/app-71fb068b.css')}}">
-  
-  {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+  {{-- <script src="{{asset('/build/assets/app-dbe23e4c.js')}}" defer></script>
+  <link rel="stylesheet" href="{{asset('/build/assets/app-71fb068b.css')}}"> --}}
+
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="relative min-h-screen">
@@ -25,7 +25,7 @@
       </ul>
     </div>
   </nav>
-  <div class="mx-auto max-w-5xl border border-base-300 rounded-md p-10 pb-20">
+  <div class="mx-auto max-w-5xl rounded-md border border-base-300 p-10 pb-20">
     @yield('content')
   </div>
   <footer class="footer footer-center absolute bottom-0 h-20 w-full bg-base-300 p-4 text-base-content">
