@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 
-  {{-- <script src="{{asset('/build/assets/app-dbe23e4c.js')}}" defer></script>
-  <link rel="stylesheet" href="{{asset('/build/assets/app-71fb068b.css')}}"> --}}
+  <script src="{{asset('/build/assets/app-dbe23e4c.js')}}" defer></script>
+  <link rel="stylesheet" href="{{asset('/build/assets/app-18b25aba.css')}}">
 
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 </head>
 
 <body class="relative min-h-screen">
