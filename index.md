@@ -1,3 +1,0 @@
-# Inksprinters
-
-Git init
