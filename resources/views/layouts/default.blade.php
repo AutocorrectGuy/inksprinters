@@ -20,12 +20,12 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <li><a href="{{ route('posts.index') }}">Posts</a></li>
-        <li><a href="{{ route('greyscaleImage') }}">Greyscale</a></li>
+        <li><a href="{{ route('convert.index') }}">Convert</a></li>
+        <li><a href="{{ route('posts.index') }}">DB test</a></li>
       </ul>
     </div>
   </nav>
-  <div class="mx-auto max-w-5xl rounded-md border border-base-300 p-10 pb-20">
+  <div class="mx-auto max-w-5xl rounded-md shadow-md shadow-base-200 border-t border-t-base-200 p-10 pb-20">
     @yield('content')
   </div>
   <footer class="footer footer-center absolute bottom-0 h-20 w-full bg-base-300 p-4 text-base-content">

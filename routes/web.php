@@ -18,10 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return redirect('/posts');
+  return redirect('/convert');
 });
-Route::get('/home', HomeController::class);
-Route::get('/contact', ContactController::class);
+
+// Route::get('/home', HomeController::class);
+Route::get('/home', function () {
+  return redirect('/convert');
+});
 
 // db test with posts
 Route::get('/posts/trashed', [PostController::class, 'trashed'])->name('posts.trashed');
@@ -30,6 +33,10 @@ Route::delete('/posts/{id}/force-delete', [PostController::class, 'forceDelete']
 Route::resource('/posts', PostController::class);
 
 // converter test
-
-Route::get('/convert', [ConverterController::class, 'index'])->name('greyscaleImage');
-Route::post('/greyscaleImage', [ConverterController::class, 'greyscaleImage'])->name('convert.greyscaleImage');
+// File conversation
+Route::get('/convert', [ConverterController::class, 'index'])->name('convert.index');
+Route::post('/convert/pdf-to-eps', [ConverterController::class, 'convertPdfToEps'])->name('convert.pdf.to.eps');
+Route::post('/convert/cmyk', [ConverterController::class, 'convertToCmyk'])->name('convert.rgb.to.cymk');
+Route::post('/convert/add-yellow-to-white-in-pdf', [ConverterController::class, 'addYellowToWhiteInPdf'])->name('add.yeelow.to.white.in.pdf');
+Route::post('/convert/image-to-pdf', [ConverterController::class, 'convertImageToPdf'])->name('convert.image.to.pdf');
+Route::post('/convert/ai-to-pdf', [ConverterController::class, 'convertAiToPdf'])->name('convert.ai.to.pdf');
