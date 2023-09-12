@@ -20,8 +20,8 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <li><a href="/posts">Posts</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="{{ route('posts.index') }}">Posts</a></li>
+        <li><a href="{{ route('greyscaleImage') }}">Greyscale</a></li>
       </ul>
     </div>
   </nav>
