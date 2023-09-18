@@ -11,7 +11,7 @@
 
 <!-- Main modal -->
 <div id="{{ $id }}" tabindex="-1" aria-hidden="true"
-  class="fixed bottom-0 left-0 right-0 top-0 z-50 hidden h-screen w-screen items-center justify-center border border-gray-200 bg-black bg-opacity-80 p-4">
+  class="fixed bottom-0 left-0 right-0 top-0 z-50 hidden h-screen w-screen items-center justify-center bg-black bg-opacity-90 p-4">
   <div class="relative mx-auto my-auto max-h-full w-full max-w-2xl">
     <!-- Modal content -->
     <div class="relative rounded-lg bg-gray-200 shadow">
