@@ -35,8 +35,4 @@ Route::resource('/posts', PostController::class);
 // converter test
 // File conversation
 Route::get('/convert', [ConverterController::class, 'index'])->name('convert.index');
-Route::post('/convert/pdf-to-eps', [ConverterController::class, 'convertPdfToEps'])->name('convert.pdf.to.eps');
-Route::post('/convert/cmyk', [ConverterController::class, 'convertToCmyk'])->name('convert.rgb.to.cymk');
-Route::post('/convert/add-yellow-to-white-in-pdf', [ConverterController::class, 'addYellowToWhiteInPdf'])->name('add.yeelow.to.white.in.pdf');
-Route::post('/convert/image-to-pdf', [ConverterController::class, 'convertImageToPdf'])->name('convert.image.to.pdf');
-Route::post('/convert/ai-to-pdf', [ConverterController::class, 'convertAiToPdf'])->name('convert.ai.to.pdf');
+Route::post('/convert/pdf-to-eps', [ConverterController::class, 'pdfToEpsAPI'])->name('convert.pdf.to.eps');
