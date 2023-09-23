@@ -5,6 +5,7 @@ use App\Http\Controllers\ConverterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,6 @@ Route::resource('/posts', PostController::class);
 // converter test
 // File conversation
 Route::get('/convert', [ConverterController::class, 'index'])->name('convert.index');
-Route::post('/convert/pdf-to-eps', [ConverterController::class, 'pdfToEpsAPI'])->name('convert.pdf.to.eps');
+// Route::post('/convert/pdf-to-eps', [ConverterController::class, 'pdfToEpsAPI'])->name('convert.pdf.to.eps');
+// Route::post('/convert/ai-to-pdf', [ConverterController::class, 'aiToPdfAPI'])->name('convert.ai.to.pdf');
+Route::post('/convert/via-api', [ConverterController::class, 'convertViaApi'])->name('convert.via.api');

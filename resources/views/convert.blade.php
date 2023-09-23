@@ -20,42 +20,40 @@
       </div>
     @endif
 
-    {{-- PDF to EPS --}}
-    <div class="m-4 max-w-sm rounded-lg border border-gray-300 bg-gray-200 p-6 shadow">
-      <div class="relative mx-auto h-36 w-36">
-        <!-- Top-left rectangle with "PDF" -->
-        <div
-          class="absolute left-0 top-0 flex h-3/5 w-3/5 items-center justify-center rounded-md bg-rose-600 shadow-lg shadow-rose-300">
-          <span class="text-xl font-bold text-white">PDF</span>
+    {{-- <x-conversion-card :from="'pdf'" :to="'eps'" :route="'convert.pdf.to.eps'"/>
+    <x-conversion-card :from="'ai'" :to="'pdf'" :route="'convert.ai.to.pdf'"/> --}}
+    <div class="flex justify-center">
+      <form class="flex items-center justify-between" action="{{ route('convert.via.api') }}" method="post"
+        enctype="multipart/form-data">
+        @csrf
+        <div class="flex flex-col gap-2">
+          <select class="select select-primary w-full max-w-xs" name="from">
+            <option selected>PDF</option>
+            <option>EPS</option>
+            <option>AI</option>
+          </select>
+          <select class="select select-primary w-full max-w-xs" name="to">
+            <option>PDF</option>
+            <option selected>EPS</option>
+            <option>AI</option>
+          </select>
+          <input type="file" id="file" name="file" accept="" required />
+          <button type="submit"
+            class="rounded bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-700">Convert</button>
         </div>
-        <!-- Bottom-right rectangle with "EPS" -->
-        <div
-          class="absolute bottom-0 right-0 flex h-3/5 w-3/5 items-center justify-center rounded-md bg-blue-600 shadow-lg shadow-blue-300">
-          <span class="text-xl font-bold text-white">EPS</span>
-        </div>
-      </div>
-      <a href="#">
-        <h5 class="text-md py-4 text-center font-bold tracking-tight text-gray-900">
-          PDF to EPS
-        </h5>
-      </a>
-      <div class="flex justify-center">
-        <x-modal id="modal-pdf-to-eps" btnText="Upload & Convert" headingText="Convert PDF to EPS">
-          <div class="border-b border-b-gray-300 pb-4">
-            Convert your PDF files into EPS format with ease. Simply upload your PDF and we'll handle the rest.
-          </div>
-          <form class="flex items-center justify-between" action="{{ route('convert.pdf.to.eps') }}" method="post"
-            enctype="multipart/form-data">
-            @csrf
-            <div class="my-2">
-              <label for="input_pdf_to_eps" class="mb-1 block font-medium">Select a PDF:</label>
-              <input type="file" id="input_pdf_to_eps" name="pdf" accept=".pdf" required>
-            </div>
-            <button type="submit"
-              class="rounded bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-700">Convert</button>
-          </form>
-        </x-modal>
-      </div>
+      </form>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const fromSelect = document.querySelector('[name="from"]');
+        const fileInput = document.getElementById('file');
+        // Update the accept attribute based on the from select value
+        const updateAcceptAttribute = () => fileInput.setAttribute('accept', '.' + fromSelect.value.toLowerCase());
+        // Initial setting of accept attribute
+        updateAcceptAttribute();
+        // Event listener for changes in from select
+        fromSelect.addEventListener('change', updateAcceptAttribute);
+      });
+    </script>
   </div>
 @endsection

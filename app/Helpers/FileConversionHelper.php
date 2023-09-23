@@ -25,7 +25,7 @@ class FileConversionHelper
       throw new \Exception('Unsupported conversion type');
     }
 
-    $baseHref = env('APP_ENVIRONMENT') === 'local' ? '153.92.221.48:8000' : '127.0.0.1:8001';
+    $baseHref = env('APP_ENV') === 'local' ? '153.92.221.48:8000' : '127.0.0.1:8001';
     $this->href = "http://{$baseHref}/api/{$this->ext_input}to{$this->ext_output}";
   }
 
