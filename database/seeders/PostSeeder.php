@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PostSeeder extends Seeder
 {
@@ -13,13 +14,15 @@ class PostSeeder extends Seeder
    */
   public function run(): void
   {
-    for ($i = 0; $i < 11; $i++) {
-      DB::table('posts')->insert([
-        'title' => fake()->title(),
-        'category_id' => rand(1,15),
-        'image' => null,
-        'description' => fake()->sentences(rand(1,3), true),
-        'created_at' => now()
+    for ($i = 0; $i < 50; $i++) {
+      Post::insert([
+        'title' => Str::random(20),
+        'description' => Str::random(20),
+        'status' => rand(0, 1),
+        'publish_date' => date('Y-m-d'),
+        'user_id' => rand(1, 5),
+        'category_id' => rand(1, 5),
+        'views' => rand(1, 6) * 50
       ]);
     }
   }
