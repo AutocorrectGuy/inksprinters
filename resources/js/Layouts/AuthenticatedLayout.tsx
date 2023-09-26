@@ -28,7 +28,7 @@ export default function Authenticated({ user, header, children }: PropsWithChild
                   Dashboard
                 </NavLink>
                 {
-                  user.role === 'admin' &&
+                  (user.role === 'admin' || user.role === 'premium') &&
                   <NavLink href={route('converter')} active={route().current('converter')}>
                     Converter
                   </NavLink>
