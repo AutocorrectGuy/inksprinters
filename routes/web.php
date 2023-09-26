@@ -40,7 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
   })->name('dashboard');
 
   Route::get('/converter', function () {
-    return (Auth::user()->role == 'admin')
+    $role = Auth::user()->role;
+    return ($role == 'admin' || $role == 'premium')
       ? Inertia::render('Converter/Converter')
       : redirect('dashboard');
   })->name('converter');
