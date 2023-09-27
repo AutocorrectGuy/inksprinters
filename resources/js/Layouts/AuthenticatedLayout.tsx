@@ -7,12 +7,30 @@ import { Link } from '@inertiajs/react';
 import { User } from '@/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import Footer from '@/Components/Footer';
+
+export const USER_ROLES = ['admin', 'premium', 'guest'] as const;
+type UserRoleType = typeof USER_ROLES[number];
+type NavLinkType = {
+  title: string,
+  routeName: string,
+  roles: UserRoleType[]
+}
+
+const ALL_USER_ROLES = [...USER_ROLES]
 
 export default function Authenticated({ user, header, children }: PropsWithChildren<{ user: User, header?: ReactNode }>) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+  const [navLinks, _setNavLinks] = useState<NavLinkType[]>([
+    { title: 'Dashboard', routeName: 'dashboard', roles: ALL_USER_ROLES },
+    { title: 'Converter', routeName: 'converter', roles: ['premium', 'admin'] },
+  ]);
+
+  const hasAccessToRoute = (roles: UserRoleType[]): boolean => roles.includes(user.role as UserRoleType);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900">
+
       <nav className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
@@ -24,14 +42,11 @@ export default function Authenticated({ user, header, children }: PropsWithChild
               </div>
 
               <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                  Dashboard
-                </NavLink>
                 {
-                  (user.role === 'admin' || user.role === 'premium') &&
-                  <NavLink href={route('converter')} active={route().current('converter')}>
-                    Converter
-                  </NavLink>
+                  navLinks
+                    .filter(({ roles }) => hasAccessToRoute(roles))
+                    .map(({ title, routeName }) =>
+                      <NavLink href={route(routeName)} active={route().current(routeName)}>{title}</NavLink>)
                 }
               </div>
             </div>
@@ -88,9 +103,12 @@ export default function Authenticated({ user, header, children }: PropsWithChild
 
         <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
           <div className="pt-2 pb-3 space-y-1">
-            <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-              Dashboard
-            </ResponsiveNavLink>
+            {
+              navLinks
+                .filter(({ roles }) => hasAccessToRoute(roles))
+                .map(({ title, routeName }) =>
+                  <ResponsiveNavLink href={route(routeName)} active={route().current(routeName)}>{title}</ResponsiveNavLink>)
+            }
           </div>
 
           <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
@@ -117,7 +135,9 @@ export default function Authenticated({ user, header, children }: PropsWithChild
         </header>
       )}
 
-      <main>{children}</main>
+      <main className='flex-grow'>{children}</main>
+
+      <Footer />
     </div>
   );
 }

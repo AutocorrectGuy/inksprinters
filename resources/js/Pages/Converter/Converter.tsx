@@ -22,7 +22,7 @@ type FormData = {
   to: AllowedExtensionsType | null;
 };
 
-const Converter: React.FC<PageProps> = ({ auth, posts }) => {
+const Converter: React.FC<PageProps> = ({ auth }) => {
 
   const { data, setData } = useForm<FormData>({
     file: null,
@@ -48,7 +48,7 @@ const Converter: React.FC<PageProps> = ({ auth, posts }) => {
     pauseOnHover: true,
     draggable: true,
     theme: "dark",
-    });
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -123,32 +123,35 @@ const Converter: React.FC<PageProps> = ({ auth, posts }) => {
       header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Converter</h2>}
     >
       <Head title="Converter" />
-      <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-center bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-14">
-            <div className="text-gray-900 dark:text-gray-300 text-center text-2xl">
-              Convert your files
-            </div>
-            <form className='flex flex-col justify-center' onSubmit={handleSubmit}>
-              <div className='flex items-center justify-center pt-2 my-12'>
-                <div className="file-input-container relative inline-block mr-6">
-                  <label htmlFor="fileInput" className="btn btn-outline mb-2 cursor-pointer h-16 px-8 border text-lg shadow-lg">Choose File</label>
-                  <input
-                    id="fileInput"
-                    type="file"
-                    className="file-input file-input-bordered w-full absolute opacity-0 cursor-pointer"
-                    style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
-                    onChange={handleFileChange}
-                  />
-                </div>
+
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-8">
+        <div className="flex flex-col justify-center bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-4 md:p-14 ">
+          <div className="text-gray-900 dark:text-gray-300 text-center text-2xl">
+            Convert your files
+          </div>
+          <form className='flex flex-col justify-center' onSubmit={handleSubmit}>
+            <div className='flex items-center justify-center pt-2 my-12 flex-col md:flex-row gap-2 md:gap-0'>
+              <div className="file-input-container relative inline-block md:mr-6 w-full md:w-fit">
+                <label htmlFor="fileInput" className="btn btn-outline mb-2 cursor-pointer h-16 px-8 border text-lg shadow-lg w-full md:w-fit">
+                  Choose File
+                </label>
+                <input
+                  id="fileInput"
+                  type="file"
+                  className="file-input file-input-bordered w-full absolute opacity-0 cursor-pointer"
+                  style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
+                  onChange={handleFileChange}
+                />
+              </div>
+              <div className='flex items-center'>
                 <div className="dropdown" ref={dropdownRef}>
                   <label
                     tabIndex={0}
-                    className="btn btn-lg mb-2"
+                    className="btn btn-lg md:mb-2"
                     onClick={() => setFromDropdownOpen(!fromDropdownOpen)}
                   >
                     {data.from ?? 'FROM'}
-                    <FontAwesomeIcon icon={faChevronDown} className='ml-1 w-4 h-4' />
+                    <FontAwesomeIcon icon={faChevronDown} className='md:ml-1 w-4 h-4 hidden md:visible' />
                   </label>
                   {fromDropdownOpen && (
                     <ul
@@ -161,15 +164,15 @@ const Converter: React.FC<PageProps> = ({ auth, posts }) => {
                     </ul>
                   )}
                 </div>
-                <div className='text-xl text-gray-300 px-3 mb-2'>to</div>
+                <div className='text-xl text-gray-300 px-3 md:mb-2'>to</div>
                 <div className="dropdown" ref={toDropdownRef}>
                   <label
                     tabIndex={0}
-                    className="btn btn-lg mb-2"
+                    className="btn btn-lg md:mb-2"
                     onClick={() => setToDropdownOpen(!toDropdownOpen)}
                   >
                     {data.to ?? 'TO'}
-                    <FontAwesomeIcon icon={faChevronDown} className='ml-1 w-4 h-4' />
+                    <FontAwesomeIcon icon={faChevronDown} className='md:ml-1 w-4 h-4 hidden md:visible' />
                   </label>
                   {toDropdownOpen && (
                     <ul
@@ -182,18 +185,21 @@ const Converter: React.FC<PageProps> = ({ auth, posts }) => {
                     </ul>
                   )}
                 </div>
-                <button type='submit' disabled={isProcessing} className='btn h-14 px-6 text-lg btn-primary shadow-lg mb-2 ml-6'>
-                  CONVERT{isProcessing && 'ing'}
-                  {isProcessing && <span className="ml-2 loading loading-spinner loading-md"></span>}
-                </button>
               </div>
-              <div className={`mt-2 ${selectedFileName ? "text-gray-200" : "text-gray-600"} text-center`}>
-                Selected file:&nbsp;<b>{selectedFileName || 'No file selected'}</b>
-              </div>
-            </form>
-          </div>
+
+              <button type='submit' disabled={isProcessing} className='btn h-14 px-6 text-lg btn-primary shadow-lg md:mb-2 md:ml-6 md:mt-0 mt-2 w-full md:w-fit'>
+                CONVERT{isProcessing && 'ing'}
+                {isProcessing && <span className="ml-2 loading loading-spinner loading-md"></span>}
+              </button>
+            </div>
+            <div className={`mt-2 ${selectedFileName ? "text-gray-200" : "text-gray-600"} text-center`}>
+              Selected file:&nbsp;<b>{selectedFileName || 'No file selected'}</b>
+            </div>
+          </form>
         </div>
       </div>
+
+
       <ToastContainer
         position="top-center"
         autoClose={3000}
