@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Footer from '@/Components/Footer';
 
-export const USER_ROLES = ['admin', 'premium', 'guest'] as const;
+export const USER_ROLES = ['admin', 'premium', 'quest'] as const;
 type UserRoleType = typeof USER_ROLES[number];
 type NavLinkType = {
   title: string,
