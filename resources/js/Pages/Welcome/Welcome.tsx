@@ -1,7 +1,7 @@
 import { Link, Head } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import HeroBannerSvg from './hero-banner.png';
+import HeroBannerSvg from './Hero-animated-v1.svg';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<{ laravelVersion: string, phpVersion: string }>) {
   return (
@@ -37,17 +37,16 @@ export default function Welcome({ auth, laravelVersion, phpVersion }: PageProps<
         </div>
 
         <div className="max-w-7xl mx-auto p-6 lg:p-8">
-          <div className="flex justify-center items-center mt-20 mb-12">
-            <h1 className='text-4xl ml-4 font-bold'>INK</h1>
-            <ApplicationLogo className='w-20 h-20 mx-2 text-gray-400' />
-            <h1 className='text-4xl font-bold'>Sprinters</h1>
+          <div className="flex justify-center items-center mt-20 mb-8 sm:mb-2">
+            <h1 className='text-3xl ml-4 font-bold bg-gradient-to-r to-[#ba3749] from-[#ca5160] px-2 text-gray-200 mr-1 rounded-sm'>INK</h1>
+            <h1 className='text-4xl text-gray-300 font-bold translate-y-1'>Sprinters</h1>
           </div>
           <img className='rounded-lg' src={HeroBannerSvg} alt="Hero-banner" />
 
           <div className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
-            <div
+              <div
                 className="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500"
               >
                 <div>
