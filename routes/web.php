@@ -33,7 +33,8 @@ Route::middleware('auth')->group(function () {
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+// 'verified removed'
+Route::middleware(['auth'])->group(function () {
 
   Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Dashboard');
@@ -45,8 +46,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
       ? Inertia::render('Converter/Converter')
       : redirect('dashboard');
   })->name('converter');
-  
+
+  // for testing purposes
+  Route::get('/welcome-beats', function () {
+    return Inertia::render('WelcomeBeats/Welcome');
+  })->name('welcome-beats');
+
   Route::post('/convert/filetype-via-api', [GSConverterController::class, 'convertViaApi']);
 });
+
+
 
 require __DIR__ . '/auth.php';
