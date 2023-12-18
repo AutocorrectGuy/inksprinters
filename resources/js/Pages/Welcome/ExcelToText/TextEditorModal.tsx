@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import TextEditorOptions, { LineSpacingType, SettingsType, TextEncodingType } from './TextEditorOptions'
+import MonacoEditor from './MonacoEditor'
 
 const initialSettings: SettingsType = {
   textWrap: false,  // Checkbox state
@@ -36,11 +37,9 @@ const TextEditorModal = ({ modalRef, text, setText }: Props) => {
   const [inputText, setInputText] = useState<string>('') // Inputfield text value
   const [settings, setSettings] = useState<SettingsType>(loadSettings());
 
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    if (text && textareaRef.current) {
-      textareaRef.current.focus()
+    if (text) {
       setInputText(() => {
         const lineSpacing = settings.lineSpacing === 'none' ? 1 : 2
 
@@ -107,14 +106,7 @@ const TextEditorModal = ({ modalRef, text, setText }: Props) => {
             <div className='flex flex-col grow pl-4 col-span-5 h-hull'>
 
               {/* Textarea with modified text */}
-              <textarea
-                tabIndex={1}
-                ref={textareaRef}
-                className="textarea h-full w-full border-transparent focus:border-transparent focus:ring-0 leading-5 bg-base-200 py-4"
-                value={inputText}
-                rows={24}
-                onChange={(e) => setInputText(e.target.value)}
-              />
+              <MonacoEditor inputText={inputText} setInputText={setInputText} />
             </div>
           </div>
         </div>
