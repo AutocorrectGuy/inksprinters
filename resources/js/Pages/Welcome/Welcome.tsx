@@ -1,8 +1,8 @@
 import { Link, Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import HeroBannerSvg from "./Hero-animated-v1.svg";
-import ExcelToText from "./ExcelToText/ExcelToText";
 import CustomToastContainer from "@/Components/Toast/CustomToastContainer";
+import ExcelToText from "./ExcelToText/ExcelToText";
 
 
 export default function Welcome({
