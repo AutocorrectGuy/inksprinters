@@ -9,7 +9,7 @@ export const collectForeignCharacters = (
   const foreignChars: { [key: string]: number[] } = {}
 
   // Don't bother checking if encoding is UTF-8
-  if (encoding === 'utf-8') return foreignChars
+  if (encoding === 'UTF-8') return foreignChars
 
   // Get the character set for the encoding
   const charSet = encodingCharSets[encoding]

@@ -55,6 +55,8 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/convert/filetype-via-api', [GSConverterController::class, 'convertViaApi']);
 });
 
-
+Route::get('/phpmyinfo', function () {
+  phpinfo();
+})->name('phpmyinfo');
 
 require __DIR__ . '/auth.php';
