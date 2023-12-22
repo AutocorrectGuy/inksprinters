@@ -13,13 +13,24 @@ export const handleDownload = async (inputText: string, encoding: TextEncodingTy
       }),
     });
 
-    const data = await response.json();
-    const fileName = data.fileName;
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
+    // Getting the blob from the response
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    // Creating a temporary link to download the file
     const downloadLink = document.createElement('a');
-    downloadLink.href = `/storage/${fileName}`;
-    downloadLink.download = fileName;
+    downloadLink.href = url;
+    downloadLink.download = 'download.txt'; // You can set a default name or extract it from headers
+    document.body.appendChild(downloadLink);
     downloadLink.click();
+
+    // Clean up
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(downloadLink);
   } catch (error) {
     console.error('Error during file download:', error);
   }
