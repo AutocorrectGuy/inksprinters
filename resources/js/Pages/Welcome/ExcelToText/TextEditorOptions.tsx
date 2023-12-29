@@ -1,9 +1,9 @@
 import TailwindcssDropdown from '@/Components/Dropdowns/TailwindcssDropdown'
 import { faCopy, faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import TailwindcssCheckbox from '@/Components/Checkboxes/TailwindcssCheckbox'
-import { LineSpacingType, SettingsType, TextEncodingType, TextWrapType, textEditorInitialOptions } from './utils/TextEditorSettings'
+import { LineSpacingType, TextEncodingType, TextWrapType, textEditorInitialOptions } from './utils/TextEditorSettings'
 import { ExcelToTextContext } from './Contexts/ExcelToTextContext'
 
 type Props = {
@@ -19,7 +19,7 @@ const TextEditorOptions = ({ handleCopy, handleDownload }: Props) => {
   const handleTextEncodingSelect = (val: string) => setSettings({ ...settings, textEncoding: val as TextEncodingType });
 
   return (
-    <div className='flex flex-col justify-between gap-2 text-sm pr-3 max-w-[240px] w-full col-span-2 border-r-2 border-r-base-200'>
+    <div className='flex flex-col justify-between gap-2 text-sm pr-3 w-full h-full col-span-2 border-r-2 border-r-base-200'>
       {/* Top options*/}
       <div className='flex flex-col gap-2'>
         {/* Text wrap checkbox */}

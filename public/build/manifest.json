@@ -3,100 +3,110 @@
     "file": "assets/ReactToastify-93d8b085.css",
     "src": "ReactToastify.css"
   },
-  "_ApplicationLogo-a310e0a3.js": {
-    "file": "assets/ApplicationLogo-a310e0a3.js",
+  "_ApplicationLogo-385a477e.js": {
+    "file": "assets/ApplicationLogo-385a477e.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_AuthenticatedLayout-b7b65737.js": {
-    "file": "assets/AuthenticatedLayout-b7b65737.js",
+  "_AuthenticatedLayout-d0c643cc.js": {
+    "file": "assets/AuthenticatedLayout-d0c643cc.js",
     "imports": [
       "resources/js/app.tsx",
-      "_ApplicationLogo-a310e0a3.js",
-      "_Dropdown-9e8cd4ca.js",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js"
+      "_ApplicationLogo-385a477e.js",
+      "_Dropdown-b3550ccc.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js"
     ]
   },
-  "_Dropdown-9e8cd4ca.js": {
-    "file": "assets/Dropdown-9e8cd4ca.js",
+  "_Dropdown-b3550ccc.js": {
+    "file": "assets/Dropdown-b3550ccc.js",
     "imports": [
       "resources/js/app.tsx",
-      "_transition-a96d11ff.js"
+      "_transition-cc57b73e.js"
     ]
   },
-  "_ExcelToTextContext-5ebb7887.js": {
-    "file": "assets/ExcelToTextContext-5ebb7887.js",
+  "_ExcelContentParser-78f58c95.js": {
+    "file": "assets/ExcelContentParser-78f58c95.js",
+    "imports": [
+      "_ReactToastify-5b1e8a10.js",
+      "resources/js/app.tsx"
+    ]
+  },
+  "_ExcelToTextContext-3746a05a.js": {
+    "file": "assets/ExcelToTextContext-3746a05a.js",
     "imports": [
       "resources/js/app.tsx"
     ],
     "isDynamicEntry": true
   },
-  "_GuestLayout-cadc76a2.js": {
-    "file": "assets/GuestLayout-cadc76a2.js",
+  "_GuestLayout-73a45a39.js": {
+    "file": "assets/GuestLayout-73a45a39.js",
     "imports": [
       "resources/js/app.tsx",
-      "_ApplicationLogo-a310e0a3.js"
+      "_ApplicationLogo-385a477e.js"
     ]
   },
-  "_InputLabel-132d1b6f.js": {
-    "file": "assets/InputLabel-132d1b6f.js",
+  "_InputLabel-df8883e5.js": {
+    "file": "assets/InputLabel-df8883e5.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_PrimaryButton-8d14d0a5.js": {
-    "file": "assets/PrimaryButton-8d14d0a5.js",
+  "_LineSpacingHandler-c2184f67.js": {
+    "file": "assets/LineSpacingHandler-c2184f67.js"
+  },
+  "_PrimaryButton-edb45ff5.js": {
+    "file": "assets/PrimaryButton-edb45ff5.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_ReactToastify-69fcadc6.js": {
+  "_ReactToastify-5b1e8a10.js": {
     "css": [
       "assets/ReactToastify-93d8b085.css"
     ],
-    "file": "assets/ReactToastify-69fcadc6.js",
+    "file": "assets/ReactToastify-5b1e8a10.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_TextEditorModal-9283a2f0.js": {
-    "file": "assets/TextEditorModal-9283a2f0.js",
+  "_TableHeaderCell-9c542cde.js": {
+    "file": "assets/TableHeaderCell-9c542cde.js",
     "imports": [
-      "resources/js/app.tsx",
-      "_ReactToastify-69fcadc6.js",
-      "_index-6f82823d.js",
-      "_index.es-6926f58b.js",
-      "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
-      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
-      "_ExcelToTextContext-5ebb7887.js"
+      "resources/js/app.tsx"
     ],
     "isDynamicEntry": true
   },
-  "_TextInput-808184f4.js": {
-    "file": "assets/TextInput-808184f4.js",
+  "_TextInput-4a0ae68f.js": {
+    "file": "assets/TextInput-4a0ae68f.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_WindowUtilsContext-d7814154.js": {
-    "file": "assets/WindowUtilsContext-d7814154.js",
+  "_WindowUtilsContext-74234c51.js": {
+    "file": "assets/WindowUtilsContext-74234c51.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_index-6f82823d.js": {
-    "file": "assets/index-6f82823d.js"
+  "_index-afbedc42.js": {
+    "file": "assets/index-afbedc42.js"
   },
-  "_index.es-6926f58b.js": {
-    "file": "assets/index.es-6926f58b.js",
+  "_index-de35654f.js": {
+    "file": "assets/index-de35654f.js",
     "imports": [
       "resources/js/app.tsx"
     ]
   },
-  "_transition-a96d11ff.js": {
-    "file": "assets/transition-a96d11ff.js",
+  "_index.es-3dcf387f.js": {
+    "file": "assets/index.es-3dcf387f.js",
+    "imports": [
+      "resources/js/app.tsx"
+    ]
+  },
+  "_transition-cc57b73e.js": {
+    "file": "assets/transition-cc57b73e.js",
     "imports": [
       "resources/js/app.tsx"
     ]
@@ -219,214 +229,315 @@
     "src": "resources/images/Pages/Welcome/Trending album artwroks/album-cover (9).png"
   },
   "resources/js/Pages/Auth/ConfirmPassword.tsx": {
-    "file": "assets/ConfirmPassword-d2318cd9.js",
+    "file": "assets/ConfirmPassword-33cca014.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ConfirmPassword.tsx"
   },
   "resources/js/Pages/Auth/ForgotPassword.tsx": {
-    "file": "assets/ForgotPassword-a6ff05dc.js",
+    "file": "assets/ForgotPassword-47948412.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_TextInput-808184f4.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_TextInput-4a0ae68f.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ForgotPassword.tsx"
   },
   "resources/js/Pages/Auth/Login.tsx": {
-    "file": "assets/Login-a20717c8.js",
+    "file": "assets/Login-8945a4d1.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.tsx"
   },
   "resources/js/Pages/Auth/Register.tsx": {
-    "file": "assets/Register-19b00500.js",
+    "file": "assets/Register-d92e8c1e.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Register.tsx"
   },
   "resources/js/Pages/Auth/ResetPassword.tsx": {
-    "file": "assets/ResetPassword-50c220dd.js",
+    "file": "assets/ResetPassword-9fdd1b79.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ResetPassword.tsx"
   },
   "resources/js/Pages/Auth/VerifyEmail.tsx": {
-    "file": "assets/VerifyEmail-4ac376d2.js",
+    "file": "assets/VerifyEmail-5dac6fd6.js",
     "imports": [
       "resources/js/app.tsx",
-      "_GuestLayout-cadc76a2.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_ApplicationLogo-a310e0a3.js"
+      "_GuestLayout-73a45a39.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_ApplicationLogo-385a477e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/VerifyEmail.tsx"
   },
   "resources/js/Pages/Converter/Converter.tsx": {
-    "file": "assets/Converter-6b8f429c.js",
+    "file": "assets/Converter-d98ce5a4.js",
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-b7b65737.js",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js",
-      "_ReactToastify-69fcadc6.js",
-      "_ApplicationLogo-a310e0a3.js",
-      "_Dropdown-9e8cd4ca.js",
-      "_transition-a96d11ff.js"
+      "_AuthenticatedLayout-d0c643cc.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_ReactToastify-5b1e8a10.js",
+      "_ApplicationLogo-385a477e.js",
+      "_Dropdown-b3550ccc.js",
+      "_transition-cc57b73e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Converter/Converter.tsx"
   },
   "resources/js/Pages/Dashboard/Dashboard.tsx": {
-    "file": "assets/Dashboard-6b37c921.js",
+    "file": "assets/Dashboard-5b9ca903.js",
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-b7b65737.js",
-      "_ApplicationLogo-a310e0a3.js",
-      "_Dropdown-9e8cd4ca.js",
-      "_transition-a96d11ff.js",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js"
+      "_AuthenticatedLayout-d0c643cc.js",
+      "_ApplicationLogo-385a477e.js",
+      "_Dropdown-b3550ccc.js",
+      "_transition-cc57b73e.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Dashboard/Dashboard.tsx"
   },
   "resources/js/Pages/Profile/Edit.tsx": {
-    "file": "assets/Edit-25a4a61c.js",
+    "file": "assets/Edit-e2bd3325.js",
     "imports": [
       "resources/js/app.tsx",
-      "_AuthenticatedLayout-b7b65737.js",
+      "_AuthenticatedLayout-d0c643cc.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.tsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx",
-      "_ApplicationLogo-a310e0a3.js",
-      "_Dropdown-9e8cd4ca.js",
-      "_transition-a96d11ff.js",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js"
+      "_ApplicationLogo-385a477e.js",
+      "_Dropdown-b3550ccc.js",
+      "_transition-cc57b73e.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Edit.tsx"
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.tsx": {
-    "file": "assets/DeleteUserForm-c2d586dc.js",
+    "file": "assets/DeleteUserForm-9a8e209f.js",
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_transition-a96d11ff.js"
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_transition-cc57b73e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.tsx"
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.tsx": {
-    "file": "assets/UpdatePasswordForm-a9520ef8.js",
+    "file": "assets/UpdatePasswordForm-424c2c93.js",
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_transition-a96d11ff.js"
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_transition-cc57b73e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.tsx"
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx": {
-    "file": "assets/UpdateProfileInformationForm-397e29d0.js",
+    "file": "assets/UpdateProfileInformationForm-114039fe.js",
     "imports": [
       "resources/js/app.tsx",
-      "_TextInput-808184f4.js",
-      "_InputLabel-132d1b6f.js",
-      "_PrimaryButton-8d14d0a5.js",
-      "_transition-a96d11ff.js"
+      "_TextInput-4a0ae68f.js",
+      "_InputLabel-df8883e5.js",
+      "_PrimaryButton-edb45ff5.js",
+      "_transition-cc57b73e.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx"
   },
   "resources/js/Pages/Welcome/ExcelToText/ExcelToText.tsx": {
-    "file": "assets/ExcelToText-7e7fcbaf.js",
+    "file": "assets/ExcelToText-bc5544e8.js",
     "imports": [
       "resources/js/app.tsx",
       "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx",
-      "_ExcelToTextContext-5ebb7887.js",
-      "_index.es-6926f58b.js",
-      "_TextEditorModal-9283a2f0.js",
-      "_ReactToastify-69fcadc6.js",
-      "_index-6f82823d.js",
+      "_ExcelToTextContext-3746a05a.js",
+      "_index.es-3dcf387f.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ReactToastify-5b1e8a10.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx",
+      "_index-afbedc42.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx",
+      "_index-de35654f.js",
+      "_TableHeaderCell-9c542cde.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx",
       "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
-      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx"
+      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome/ExcelToText/ExcelToText.tsx"
   },
   "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx": {
-    "file": "assets/ExcelToTextButton-46de1125.js",
+    "file": "assets/ExcelToTextButton-1bbab751.js",
     "imports": [
       "resources/js/app.tsx",
-      "_index.es-6926f58b.js",
-      "_TextEditorModal-9283a2f0.js",
-      "_ReactToastify-69fcadc6.js",
-      "_ExcelToTextContext-5ebb7887.js",
-      "_index-6f82823d.js",
+      "_index.es-3dcf387f.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ExcelToTextContext-3746a05a.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx",
+      "_ReactToastify-5b1e8a10.js",
+      "_index-afbedc42.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx",
+      "_index-de35654f.js",
+      "_TableHeaderCell-9c542cde.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx",
       "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
-      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx"
+      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx": {
+    "file": "assets/ForgeignCharTerminal-5a18ca2a.js",
+    "imports": [
+      "resources/js/app.tsx",
+      "_ExcelToTextContext-3746a05a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx": {
+    "file": "assets/MultiStepModal-f046b546.js",
+    "imports": [
+      "resources/js/app.tsx",
+      "_index-afbedc42.js",
+      "_index.es-3dcf387f.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx",
+      "_ExcelToTextContext-3746a05a.js",
+      "_index-de35654f.js",
+      "_TableHeaderCell-9c542cde.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ReactToastify-5b1e8a10.js",
+      "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.css": {
+    "file": "assets/StepChooseColumn-789ac764.css",
+    "src": "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.css"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx": {
+    "css": [
+      "assets/StepChooseColumn-789ac764.css"
+    ],
+    "file": "assets/StepChooseColumn-e908975c.js",
+    "imports": [
+      "resources/js/app.tsx",
+      "_ExcelToTextContext-3746a05a.js",
+      "_index-de35654f.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_TableHeaderCell-9c542cde.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ReactToastify-5b1e8a10.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx": {
+    "file": "assets/StepSelectSheet-bcd80f9c.js",
+    "imports": [
+      "resources/js/app.tsx",
+      "_ExcelToTextContext-3746a05a.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ReactToastify-5b1e8a10.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx"
   },
   "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx": {
     "dynamicImports": [
       "node_modules/monaco-themes/themes/GitHub Dark.json"
     ],
-    "file": "assets/MonacoEditor-440e0d35.js",
+    "file": "assets/MonacoEditor-44e1bac4.js",
     "imports": [
       "resources/js/app.tsx",
-      "_ExcelToTextContext-5ebb7887.js"
+      "_ExcelToTextContext-3746a05a.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "_ReactToastify-5b1e8a10.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx"
   },
-  "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx": {
-    "file": "assets/TextEditorOptions-beeb0284.js",
+  "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx": {
+    "file": "assets/StepEditAndExport-fed5c222.js",
     "imports": [
       "resources/js/app.tsx",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js",
-      "_ExcelToTextContext-5ebb7887.js"
+      "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
+      "_LineSpacingHandler-c2184f67.js",
+      "_ExcelContentParser-78f58c95.js",
+      "_ReactToastify-5b1e8a10.js",
+      "_ExcelToTextContext-3746a05a.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx"
+  },
+  "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx": {
+    "file": "assets/TextEditorOptions-aa068a3c.js",
+    "imports": [
+      "resources/js/app.tsx",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_ExcelToTextContext-3746a05a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx"
@@ -439,18 +550,26 @@
     "assets": [
       "assets/Hero-animated-v1-08d1d5b3.svg"
     ],
-    "file": "assets/Welcome-0d27dfc3.js",
+    "file": "assets/Welcome-4f799891.js",
     "imports": [
       "resources/js/app.tsx",
-      "_TextEditorModal-9283a2f0.js",
+      "_ExcelContentParser-78f58c95.js",
       "resources/js/Pages/Welcome/ExcelToText/ExcelToText.tsx",
-      "_ReactToastify-69fcadc6.js",
-      "_index-6f82823d.js",
-      "_index.es-6926f58b.js",
+      "_ReactToastify-5b1e8a10.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx",
+      "_index.es-3dcf387f.js",
+      "_ExcelToTextContext-3746a05a.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx",
+      "_index-afbedc42.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx",
+      "_index-de35654f.js",
+      "_TableHeaderCell-9c542cde.js",
+      "_LineSpacingHandler-c2184f67.js",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx",
       "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
-      "_ExcelToTextContext-5ebb7887.js",
       "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
-      "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx"
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Welcome/Welcome.tsx"
@@ -459,10 +578,10 @@
     "assets": [
       "assets/cta-cover-fc00c97b.png"
     ],
-    "file": "assets/GetStartedCTA-a260a75a.js",
+    "file": "assets/GetStartedCTA-91ab2d05.js",
     "imports": [
       "resources/js/app.tsx",
-      "_index.es-6926f58b.js"
+      "_index.es-3dcf387f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/WelcomeBeats/GetStartedCTA.tsx"
@@ -471,12 +590,12 @@
     "assets": [
       "assets/hero-girl-1-e41b5562.png"
     ],
-    "file": "assets/HeroBanner-753c7426.js",
+    "file": "assets/HeroBanner-c2fadf73.js",
     "imports": [
       "resources/js/app.tsx",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js",
-      "_WindowUtilsContext-d7814154.js"
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_WindowUtilsContext-74234c51.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/WelcomeBeats/HeroBanner.tsx"
@@ -493,7 +612,7 @@
       "assets/stripe-logo-white-e967e3f2.png",
       "assets/tailwind-logo-white-f2ee3a60.png"
     ],
-    "file": "assets/PoweredByScroller-86222562.js",
+    "file": "assets/PoweredByScroller-12b17c92.js",
     "imports": [
       "resources/js/app.tsx"
     ],
@@ -527,38 +646,40 @@
     "css": [
       "assets/TrendingTracksSlider-131e9e7a.css"
     ],
-    "file": "assets/TrendingTracksSlider-40634889.js",
+    "file": "assets/TrendingTracksSlider-eaff0981.js",
     "imports": [
       "resources/js/app.tsx",
-      "_WindowUtilsContext-d7814154.js"
+      "_index-de35654f.js",
+      "_WindowUtilsContext-74234c51.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/WelcomeBeats/TrendingTracksSlider.tsx"
   },
   "resources/js/Pages/WelcomeBeats/Welcome.tsx": {
-    "file": "assets/Welcome-b760cbb7.js",
+    "file": "assets/Welcome-60fd03cc.js",
     "imports": [
       "resources/js/app.tsx",
-      "_WindowUtilsContext-d7814154.js",
-      "_index.es-6926f58b.js",
-      "_index-6f82823d.js",
-      "_Dropdown-9e8cd4ca.js",
+      "_WindowUtilsContext-74234c51.js",
+      "_index.es-3dcf387f.js",
+      "_index-afbedc42.js",
+      "_Dropdown-b3550ccc.js",
       "resources/js/Pages/WelcomeBeats/HeroBanner.tsx",
       "resources/js/Pages/WelcomeBeats/TrendingTracksSlider.tsx",
       "resources/js/Pages/WelcomeBeats/PoweredByScroller.tsx",
       "resources/js/Pages/WelcomeBeats/GetStartedCTA.tsx",
-      "_transition-a96d11ff.js"
+      "_transition-cc57b73e.js",
+      "_index-de35654f.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/WelcomeBeats/Welcome.tsx"
   },
   "resources/js/app.css": {
-    "file": "assets/app-87f5f240.css",
+    "file": "assets/app-934bad35.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.tsx": {
     "css": [
-      "assets/app-87f5f240.css"
+      "assets/app-934bad35.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/Auth/ConfirmPassword.tsx",
@@ -573,11 +694,16 @@
       "resources/js/Pages/Profile/Partials/DeleteUserForm.tsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.tsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx",
-      "_ExcelToTextContext-5ebb7887.js",
+      "_ExcelToTextContext-3746a05a.js",
       "resources/js/Pages/Welcome/ExcelToText/ExcelToText.tsx",
       "resources/js/Pages/Welcome/ExcelToText/ExcelToTextButton.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/ForgeignCharTerminal.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/MultiStepModal.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepChooseColumn.tsx",
+      "resources/js/Pages/Welcome/ExcelToText/ExcelViewer/StepSelectSheet.tsx",
+      "_TableHeaderCell-9c542cde.js",
       "resources/js/Pages/Welcome/ExcelToText/MonacoEditor.tsx",
-      "_TextEditorModal-9283a2f0.js",
+      "resources/js/Pages/Welcome/ExcelToText/StepEditAndExport.tsx",
       "resources/js/Pages/Welcome/ExcelToText/TextEditorOptions.tsx",
       "resources/js/Pages/Welcome/Welcome.tsx",
       "resources/js/Pages/WelcomeBeats/GetStartedCTA.tsx",
@@ -586,7 +712,7 @@
       "resources/js/Pages/WelcomeBeats/TrendingTracksSlider.tsx",
       "resources/js/Pages/WelcomeBeats/Welcome.tsx"
     ],
-    "file": "assets/app-3acad420.js",
+    "file": "assets/app-e05131b1.js",
     "isEntry": true,
     "src": "resources/js/app.tsx"
   }

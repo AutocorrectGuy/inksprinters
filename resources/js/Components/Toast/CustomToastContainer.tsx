@@ -1,7 +1,7 @@
 import { ToastContainer, ToastOptions } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-export const custtomToastProps:ToastOptions =  {
+export const customToastProps:ToastOptions =  {
   position: "top-right",
   autoClose: 3000,
   hideProgressBar: true,

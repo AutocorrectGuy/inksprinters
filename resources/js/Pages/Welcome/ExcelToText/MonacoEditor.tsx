@@ -1,8 +1,11 @@
 import { Editor, useMonaco } from '@monaco-editor/react'
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { editor as editorType } from 'monaco-editor'
 import { ExcelToTextContext } from './Contexts/ExcelToTextContext'
 import { collectForeignCharacters } from './utils/Encoding/collectForeignCharacters'
+import { extractColumn } from './utils/ExcelContentParser'
+import ForgeignCharTerminal from './ExcelViewer/ForgeignCharTerminal'
+import { lineSpacingHandler } from './utils/OptionsHandlers/LineSpacingHandler'
 
 // Extracts unique values from object arrays
 function getUniqueValuesFromObjectArrays<T>(data: Record<string, T[]>): T[] {
@@ -15,13 +18,22 @@ function getUniqueValuesFromObjectArrays<T>(data: Record<string, T[]>): T[] {
   return Array.from(uniqueValues)
 }
 
-// Main App component
 const MonacoEditor = () => {
-  const { inputText, setInputText, foreignChars, setForeignChars, settings: { textEncoding } } = useContext(ExcelToTextContext)
+  const {
+    cells,
+    selectedColumnIndexes,
+    primaryEditorTextValue,
+    primaryEditorCells,
+    setPrimaryEditorTextValue,
+    setPrimaryEditorCells,
+    setForeignChars,
+    settings
+  } = useContext(ExcelToTextContext)
+
   const [decorations, setDecorations] = useState<string[]>([])
   const [isThemeLoaded, setIsThemeLoaded] = useState(false);
-
-  // Ref to the Monaco editor instance
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0)
+  const [mounted, setMounted] = useState<boolean>(false)
   const editorRef = useRef<editorType.IStandaloneCodeEditor | null>(null)
 
   // Monaco Editor API access
@@ -34,15 +46,21 @@ const MonacoEditor = () => {
         .then(data => {
           monaco.editor.defineTheme('github-dark', data as editorType.IStandaloneThemeData);
         })
-        .then(() => setIsThemeLoaded(true));
+        .then(() => {
+          setIsThemeLoaded(true)
+        });
     }
   }, [monaco]);
 
-  // Initialize editor on mount
-  const onMount = useCallback((editor: editorType.IStandaloneCodeEditor) => {
-    editorRef.current = editor
+  useEffect(() => {
+    updateDecorationsAndCollectChars(primaryEditorTextValue as string)
+  }, [mounted, activeTabIndex])
 
-  }, [])
+  // Initialize editor on mount
+  const onMount = (editor: editorType.IStandaloneCodeEditor) => {
+    editorRef.current = editor
+    setMounted(true)
+  }
 
   // Creates decorations for text lines with non-Windows-1252 characters
   const createDecoration = (lineIndex: number) => ({
@@ -50,64 +68,66 @@ const MonacoEditor = () => {
     range: new monaco!.Range(lineIndex + 1, 1, lineIndex + 1, 1)
   })
 
+
   // Updates decorations and collect non-Windows-1252 characters
-  const updateDecorationsAndCollectChars = useCallback(() => {
-    if (!monaco || !editorRef.current) return
+  const updateDecorationsAndCollectChars = (newValue: string) => {
+    if (!monaco || !editorRef.current) return;
 
-    const currNonWindows1252Chars = collectForeignCharacters(inputText, textEncoding)
+    const currNonWindows1252Chars = collectForeignCharacters(newValue, settings.textEncoding);
     const currentDecorations = getUniqueValuesFromObjectArrays(currNonWindows1252Chars)
-      .map((i) => (createDecoration(i)))
+      .map((i) => createDecoration(i));
 
-    setForeignChars(currNonWindows1252Chars)
-    setDecorations(editorRef.current.deltaDecorations(decorations, currentDecorations))
-  }, [inputText, textEncoding])
-
-  // Updates decorations whenever the input value changes
-  useEffect(() => {
-    updateDecorationsAndCollectChars()
-  }, [updateDecorationsAndCollectChars])
+    setForeignChars(currNonWindows1252Chars);
+    setDecorations(editorRef.current.deltaDecorations(decorations, currentDecorations));
+  };
 
   // Handles editor text content changes
-  const onChange = useCallback((val: string) => {
-    setInputText(val)
-  }, [])
+  const onChange = (val: string) => {
+    setPrimaryEditorTextValue(val)
+    updateDecorationsAndCollectChars(val)
+  }
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTabIndex(tabIndex)
+    setPrimaryEditorCells(() => extractColumn(cells, tabIndex))
+    setPrimaryEditorTextValue(() => lineSpacingHandler(settings, extractColumn(cells, tabIndex)))
+  }
 
   return (
     <>
-      {isThemeLoaded && (
-        <div>
-          <Editor
-            value={inputText}
-            className='h-full w-full'
-            height={window.innerHeight - 300}
-            theme='github-dark'
-            options={{
-              minimap: { enabled: false }
-            }}
-            onMount={onMount}
-            onChange={(val) => onChange(val as string)}
-          />
-          <div className='py-2 bg-base-200 px-5 h-32 overflow-y-scroll'>
-            <div>Illegal characters (for {textEncoding} encoding): </div>
-            <div>
-              {Object.keys(foreignChars).length > 0
-                ? Object.keys(foreignChars).map((char, index) => (
-                  <div key={`illegal-character-${index}`}>
-                    <span className='text-yellow-400'>{char}</span> on line
-                    {foreignChars[char].length > 1 ? 's: ' : ': '}
-                    {foreignChars[char].map((lineNumber, lineIndex) => (
-                      <span key={`illegal-character-line-number-${lineIndex}`}>
-                        <span className='text-red-500'>{lineNumber + 1}</span>
-                        {lineIndex < foreignChars[char].length - 1 ? ', ' : ''}
-                      </span>
-                    ))}
-                  </div>
-                ))
-                : <span className='text-green-500'>None ✅</span>}
+      {isThemeLoaded && primaryEditorCells && selectedColumnIndexes.length
+        ? (
+          <div className="flex flex-col h-full">
+            <div role="tablist" className="tabs tabs-lifted">
+              {selectedColumnIndexes.map((i) => (
+                <div
+                  key={`monaco-tab-index-${i}`}
+                  role="tab"
+                  className={`tab rounded-tr-[16px] font-bold ${i === activeTabIndex ? 'tab-active bg-purple-800 text-gray-300' : 'bg-base-300'}`}
+                  onClick={() => handleTabClick(i)}
+                >
+                  Column Nº {i + 1}
+                </div>
+              ))}
             </div>
+            <Editor
+              value={primaryEditorTextValue as string}
+              theme='github-dark'
+              className='flex-grow'
+              loading={''}
+              width={'100%'}
+              height={'100%'}
+              options={{
+                minimap: { enabled: false }
+              }}
+              onMount={onMount}
+              onChange={(val) => onChange(val as string)}
+            />
           </div>
+        )
+        : <div className='flex h-full items-center justify-center'>
+          <span className="loading loading-spinner loading-lg"></span>
         </div>
-      )
       }
     </>
   )
