@@ -1,8 +1,9 @@
 import { AppSettingsType } from '../../config/TextEditorSettings'
 
-export const lineSpacingHandler = (settings: AppSettingsType, textArray: string[]) => {
-  const lineSpacing = settings.lineSpacing === 'none' ? 1 : 2
+// 
+export const lineSpacingHandler = (settings: AppSettingsType, cellsArray: string[]) => {
+  const lineSpacing = settings.lineSpacing !== 'none' ? 2 : 1
   return settings.textWrap
-    ? textArray.map((cell) => cell.toString().replace(/[\r\n]+/g, ' ')).join('\n'.repeat(lineSpacing))
-    : textArray.join('\n'.repeat(lineSpacing))
+    ? cellsArray.map((cell) => cell.toString().replace(/[\r\n]+/g, ' ')).join('\n'.repeat(lineSpacing))
+    : cellsArray.join('\n'.repeat(lineSpacing))
 }
