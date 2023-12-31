@@ -12,33 +12,35 @@ export type TrackCardProps = {
 
 const TrackCard = ({ price, badge, bpm, hasAd, beatName, author, image }: TrackCardProps) => {
   return (
-    <div className="w-full rounded-lg overflow-hidden p-3 hover:bg-neutral-600 hover:bg-opacity-25 border border-transparent hover:border-neutral-700 cursor-pointer">
+    <div className="w-full cursor-pointer overflow-hidden rounded-lg border border-transparent p-3 hover:border-neutral-700 hover:bg-neutral-600 hover:bg-opacity-25">
       {/* Image */}
-      <div className="aspect-square flex items-center justify-center border border-neutral-800 rounded-lg overflow-hidden">
-        <img src={image} className="object-cover w-full" />
+      <div className="flex aspect-square items-center justify-center overflow-hidden rounded-lg border border-neutral-800">
+        <img src={image} className="w-full object-cover" />
       </div>
       {/* Text content */}
       <div className="py-2">
         {/* 1st row */}
-        <div className="flex justify-start items-center gap-1 overflow-hidden font-medium text-sm sm:text-base">
-          <div className="text-blue-500 whitespace-nowrap overflow-hidden">€{price}</div>
+        <div className="flex items-center justify-start gap-1 overflow-hidden text-sm font-medium sm:text-base">
+          <div className="overflow-hidden whitespace-nowrap text-blue-500">€{price}</div>
           {badge && (
-            <div className="badge bg-orange-500 text-orange-400 bg-opacity-20 font-light text-[0.6rem] whitespace-nowrap overflow-hidden">{badge}</div>
+            <div className="badge overflow-hidden whitespace-nowrap bg-orange-500 bg-opacity-20 text-[0.6rem] font-light text-orange-400">
+              {badge}
+            </div>
           )}
           <div className="text-neutral-400">·</div>
-          <div className="text-neutral-400 opacity-90 whitespace-nowrap overflow-hidden">{bpm} BPM</div>
+          <div className="overflow-hidden whitespace-nowrap text-neutral-400 opacity-90">{bpm} BPM</div>
         </div>
         {/* 2nd row */}
-        <div className="flex justify-start items-center gap-2 overflow-hidden">
+        <div className="flex items-center justify-start gap-2 overflow-hidden">
           {hasAd && (
-            <div className="badge bg-neutral-700 bg-opacity-50 font-neutral-500 text-[0.55rem] rounded-md border-none px-1.5">
+            <div className="font-neutral-500 badge rounded-md border-none bg-neutral-700 bg-opacity-50 px-1.5 text-[0.55rem]">
               AD
             </div>
           )}
-          <div className="text-neutral-200 font-extrabold text-lg truncate">{beatName}</div>
+          <div className="truncate text-lg font-extrabold text-neutral-200">{beatName}</div>
         </div>
         {/* 3rd row */}
-        <div className="text-neutral-400 opacity-90 font-normal truncate">{author}</div>
+        <div className="truncate font-normal text-neutral-400 opacity-90">{author}</div>
       </div>
     </div>
   )

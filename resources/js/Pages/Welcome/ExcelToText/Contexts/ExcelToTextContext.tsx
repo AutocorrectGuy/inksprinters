@@ -1,135 +1,160 @@
-import { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react"
-import { SettingsType, loadSettings } from "../utils/TextEditorSettings"
-import * as XLSX from 'xlsx'
+import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from 'react'
+import { AppSettingsType, loadSettings } from '../config/TextEditorSettings'
+
+export type SkipStepsConfigType = { skipFirstStep: boolean; skipSecondStep: boolean }
+export type WorkbookType = {
+  sheetNames: string[]
+  sheets: {
+    [name: string]: string[][]
+  }
+}
 
 // MyContextType defines the structure of the context used for managing state
 // in the 'excel-to-text' application. It includes states and setters for handling
 // Excel data, editor contents, foreign characters, and application settings.
 
-type MyContextType = {
-  // Holds the structured data imported from an Excel file as a two-dimensional
-  // array of strings. Each inner array represents a row from the Excel file.
-  cells: string[][]
-  setCells: Dispatch<SetStateAction<string[][]>>
+type ExcelToTextContextType = {
+  // Represents the entire imported Excel file as an XLSX object.
+  workBook: WorkbookType | null
+  setWorkBook: Dispatch<SetStateAction<WorkbookType | null>>
 
-  // Indexes of selected coulmns that are selected by user
-  selectedColumnIndexes: number[]
-  setSelectedColumnIndexes: Dispatch<SetStateAction<number[]>>
+  // Stores the name of the currently active or selected Excel sheet.
+  sheetName: string | null
+  setSheetName: Dispatch<SetStateAction<string | null>>
 
-  // Imported file as XLSX object
-  workBook: XLSX.WorkBook | null
-  setWorkBook: Dispatch<SetStateAction<XLSX.WorkBook | null>>
+  // Contains the data of a single Excel sheet as a two-dimensional array of strings,
+  // where each sub-array represents a row from the Excel sheet.
+  sheetData: string[][]
+  setSheetData: Dispatch<SetStateAction<string[][]>>
 
-  workSheetName: string | null
-  setWorkSheetName: Dispatch<SetStateAction<string | null>>
+  // Holds the indexes of columns selected by the user in the Excel sheet.
+  selectedCols: number[]
+  setSelectedCols: Dispatch<SetStateAction<number[]>>
 
-  // An array of strings representing the cell values from the
-  // Excel file intended for the primary text editor. It can be null if no data is assigned.
-  primaryEditorCells: string[] | null
-  setPrimaryEditorCells: Dispatch<SetStateAction<string[] | null>>
+  // An array of strings, where each string is a cell value from a selected column,
+  // intended for use in the primary text editor.
+  columnValues: string[] | null
+  setColumnValues: Dispatch<SetStateAction<string[] | null>>
 
-  // A string representing the current text content of the
-  // primary text editor. It can be null if the editor is empty.
-  primaryEditorTextValue: string | null
-  setPrimaryEditorTextValue: Dispatch<SetStateAction<string | null>>
+  // Contains the current text content of the primary text editor.
+  editorText: string | null
+  setEditorText: Dispatch<SetStateAction<string | null>>
 
-  // A mapping of foreign characters found in the text editor content.
-  // Each key is a character, and the value is an array of numbers representing the
-  // positions of the character in the text.
+  // Maps unique foreign characters found in the editor's content to their respective
+  // positions within the text.
   foreignChars: { [key: string]: number[] }
   setForeignChars: Dispatch<SetStateAction<{ [key: string]: number[] }>>
 
-  // An object representing the main settings of the 'excel-to-text' application.
-  // These settings are intended to be stored in local storage (as indicated by the TODO comment).
-  settings: SettingsType
-  setSettings: Dispatch<SetStateAction<SettingsType>>
+  // Current step index of the modal
+  currentStep: number | null
+  setCurrentStep: Dispatch<SetStateAction<number | null>>
 
-  resetContext: () => void
+  skipStepsConfig: SkipStepsConfigType
+  setSkipStepsConfig: Dispatch<SetStateAction<SkipStepsConfigType>>
+
+  // Represents the configuration settings of the 'excel-to-text' application,
+  // intended for persistence in local storage.
+  appSettings: AppSettingsType
+  setAppSettings: Dispatch<SetStateAction<AppSettingsType>>
+
+  // Function to reset the context to its initial state.
+  resetContext: (onResetCallback?: () => void) => void
 }
 
 // Define the initial context value based on MyContextType
-const contextInitialValue: MyContextType = {
-  // Initial empty array for Excel cell data
-  cells: [],
-  setCells: () => { },
-
-  // Initial for selected column indexes
-  selectedColumnIndexes: [],
-  setSelectedColumnIndexes: () => { },
-
-  // Initial state of the XLSX workBook
+const DEFAULTS: ExcelToTextContextType = {
   workBook: null,
-  setWorkBook: () => { },
+  setWorkBook: () => {},
 
-  workSheetName: null,
-  setWorkSheetName: () => { },
+  sheetName: null,
+  setSheetName: () => {},
 
-  // Initial state for primary editor cells
-  primaryEditorCells: null,
-  setPrimaryEditorCells: () => { },
+  sheetData: [],
+  setSheetData: () => {},
 
-  // Initial state for primary editor text
-  primaryEditorTextValue: null,
-  setPrimaryEditorTextValue: () => { },
+  selectedCols: [],
+  setSelectedCols: () => {},
 
-  // Initial empty object for foreign characters mapping
+  columnValues: null,
+  setColumnValues: () => {},
+
+  editorText: null,
+  setEditorText: () => {},
+
   foreignChars: {},
-  setForeignChars: () => { },
+  setForeignChars: () => {},
 
-  // Load initial settings, potentially from local storage
-  settings: loadSettings(),
-  setSettings: () => { },
+  currentStep: null,
+  setCurrentStep: () => {},
 
-  resetContext: () => { }
+  skipStepsConfig: { skipFirstStep: false, skipSecondStep: false },
+  setSkipStepsConfig: () => {},
+
+  appSettings: loadSettings(),
+  setAppSettings: () => {},
+
+  resetContext: () => {},
 }
 
-// Create the context
-export const ExcelToTextContext = createContext(contextInitialValue)
-
 // Create a provider component
-export const ExcelToTextContextProvider = ({ children }: { children: ReactNode }) => {
-  const [cells, setCells] = useState<string[][]>(contextInitialValue.cells)
-  const [selectedColumnIndexes, setSelectedColumnIndexes] = useState<number[]>(contextInitialValue.selectedColumnIndexes)
-  const [workBook, setWorkBook] = useState<XLSX.WorkBook | null>(contextInitialValue.workBook)
-  const [workSheetName, setWorkSheetName] = useState<string | null>(contextInitialValue.workSheetName)
-  const [primaryEditorCells, setPrimaryEditorCells] = useState<string[] | null>(contextInitialValue.primaryEditorCells)
-  const [primaryEditorTextValue, setPrimaryEditorTextValue] = useState<string | null>(contextInitialValue.primaryEditorTextValue)
-  const [foreignChars, setForeignChars] = useState<{ [key: string]: number[] }>(contextInitialValue.foreignChars)
-  const [settings, setSettings] = useState<SettingsType>(contextInitialValue.settings)
+const ExcelToTextContext = createContext(DEFAULTS)
 
-  const resetContext = () => {
-    setCells(contextInitialValue.cells);
-    setSelectedColumnIndexes(contextInitialValue.selectedColumnIndexes);
-    setWorkBook(contextInitialValue.workBook);
-    setWorkSheetName(contextInitialValue.workSheetName);
-    setPrimaryEditorCells(contextInitialValue.primaryEditorCells);
-    setPrimaryEditorTextValue(contextInitialValue.primaryEditorTextValue);
-    setForeignChars(contextInitialValue.foreignChars);
-    setSettings(contextInitialValue.settings);
-  };
+export const ExcelToTextContextProvider = ({ children }: { children: ReactNode }) => {
+  const [workBook, setWorkBook] = useState<WorkbookType | null>(DEFAULTS.workBook)
+  const [sheetName, setSheetName] = useState<string | null>(DEFAULTS.sheetName)
+  const [sheetData, setSheetData] = useState<string[][]>(DEFAULTS.sheetData)
+  const [selectedCols, setSelectedCols] = useState<number[]>(DEFAULTS.selectedCols)
+  const [columnValues, setColumnValues] = useState<string[] | null>(DEFAULTS.columnValues)
+  const [editorText, setEditorText] = useState<string | null>(DEFAULTS.editorText)
+  const [currentStep, setCurrentStep] = useState<number | null>(DEFAULTS.currentStep)
+  const [foreignChars, setForeignChars] = useState<{ [key: string]: number[] }>(DEFAULTS.foreignChars)
+  const [skipStepsConfig, setSkipStepsConfig] = useState(DEFAULTS.skipStepsConfig)
+  const [appSettings, setAppSettings] = useState<AppSettingsType>(DEFAULTS.appSettings)
+
+  const resetContext = (onResetCallback?: () => void) => {
+    onResetCallback && onResetCallback()
+    setWorkBook(DEFAULTS.workBook)
+    setSheetName(DEFAULTS.sheetName)
+    setSheetData(DEFAULTS.sheetData)
+    setSelectedCols(DEFAULTS.selectedCols)
+    setColumnValues(DEFAULTS.columnValues)
+    setEditorText(DEFAULTS.editorText)
+    setCurrentStep(DEFAULTS.currentStep)
+    setForeignChars(DEFAULTS.foreignChars)
+    setSkipStepsConfig(DEFAULTS.skipStepsConfig)
+    setAppSettings(loadSettings())
+  }
 
   return (
     <ExcelToTextContext.Provider
       value={{
-        cells,
-        setCells,
-        selectedColumnIndexes,
-        setSelectedColumnIndexes,
         workBook,
         setWorkBook,
-        workSheetName,
-        setWorkSheetName,
-        primaryEditorCells,
-        setPrimaryEditorCells,
-        primaryEditorTextValue,
-        setPrimaryEditorTextValue,
+        sheetName,
+        setSheetName,
+        sheetData,
+        setSheetData,
+        selectedCols,
+        setSelectedCols,
+        columnValues,
+        setColumnValues,
+        editorText,
+        setEditorText,
         foreignChars,
         setForeignChars,
-        settings,
-        setSettings,
-        resetContext
-      }}>
+        currentStep,
+        setCurrentStep,
+        skipStepsConfig,
+        setSkipStepsConfig,
+        appSettings,
+        setAppSettings,
+        resetContext,
+      }}
+    >
       {children}
     </ExcelToTextContext.Provider>
   )
 }
+
+// use context as hook
+export const useExcelToTextContext = () => useContext(ExcelToTextContext)

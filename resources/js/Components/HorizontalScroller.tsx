@@ -52,7 +52,7 @@ const HorizontalScroller: React.FC<HorizontalScrollerProps> = ({
             className={`flex-none ${index !== duplicatedImages.length - 1 ? 'mr-20' : ''}`}
             style={{ height: `${height}px` }}
           >
-            <img src={image} alt={`Image ${index}`} className={`w-auto h-full object-cover ${imgClassName}`} />
+            <img src={image} alt={`Image ${index}`} className={`h-full w-auto object-cover ${imgClassName}`} />
           </div>
         ))}
       </div>

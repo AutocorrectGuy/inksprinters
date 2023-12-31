@@ -1,4 +1,4 @@
-import { TextEncodingType } from '../TextEditorSettings'
+import { TextEncodingType } from '../../config/TextEditorSettings'
 import { encodingCharSets } from './encodingCharSets'
 
 // Identifies characters in the text that are not part of Windows-1252 encoding

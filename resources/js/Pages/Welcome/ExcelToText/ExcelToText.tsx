@@ -1,12 +1,12 @@
-import ExcelToTextButton from './ExcelToTextButton';
-import { ExcelToTextContextProvider } from './Contexts/ExcelToTextContext';
+import ExcelToTextTrigger from './components/ExcelToTextTrigger'
+import { ExcelToTextContextProvider } from './contexts/ExcelToTextContext'
 
 const ExcelToText = () => {
   return (
     <ExcelToTextContextProvider>
-      <ExcelToTextButton />
+      <ExcelToTextTrigger />
     </ExcelToTextContextProvider>
-  );
+  )
 }
 
 export default ExcelToText
