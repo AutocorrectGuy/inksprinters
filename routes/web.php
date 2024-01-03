@@ -22,9 +22,27 @@ Route::get('/', function () {
   return Inertia::render('Welcome/Welcome', [
     'canLogin' => Route::has('login'),
     'canRegister' => Route::has('register'),
-    'laravelVersion' => Application::VERSION,
-    'phpVersion' => PHP_VERSION,
   ]);
+});
+
+Route::prefix('tools')->group(function () {
+  // Sub-route '/tools/monaco'
+  Route::get('/monaco', function () {
+      return Inertia::render('Tools/Monaco/Monaco', [
+          'canLogin' => Route::has('login'),
+          'canRegister' => Route::has('register'),
+      ]);
+  });
+
+  // Sub-route '/tools/excel-to-text'
+  Route::get('/excel-to-text', function () {
+      return Inertia::render('Tools/ExcelToText', [
+          'canLogin' => Route::has('login'),
+          'canRegister' => Route::has('register'),
+      ]);
+  });
+
+  // ... add more sub-routes for '/tools' as needed
 });
 
 Route::middleware('auth')->group(function () {
@@ -39,24 +57,6 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/dashboard', function () {
     return Inertia::render('Dashboard/Dashboard');
   })->name('dashboard');
-
-  Route::get('/converter', function () {
-    $role = Auth::user()->role;
-    return ($role == 'admin' || $role == 'premium')
-      ? Inertia::render('Converter/Converter')
-      : redirect('dashboard');
-  })->name('converter');
-
-  // for testing purposes
-  Route::get('/welcome-beats', function () {
-    return Inertia::render('WelcomeBeats/Welcome');
-  })->name('welcome-beats');
-
-  Route::post('/convert/filetype-via-api', [GSConverterController::class, 'convertViaApi']);
 });
-
-Route::get('/phpmyinfo', function () {
-  phpinfo();
-})->name('phpmyinfo');
 
 require __DIR__ . '/auth.php';
