@@ -5,7 +5,7 @@ import ExcelToText from '../ExcelToText/ExcelToText'
 
 const TopNav = ({ auth }: PageProps) => {
   return (
-    <div className="p-6 text-right sm:fixed sm:right-0 sm:top-0 text-lg z-10">
+    <div className="z-10 p-6 text-right text-xl sm:fixed sm:right-0 sm:top-0">
       {auth.user ? (
         <Link
           href={route('dashboard')}

@@ -4,7 +4,6 @@ import { Editor, useMonaco } from '@monaco-editor/react'
 import { useEffect, useState } from 'react'
 import { editor as editorType } from 'monaco-editor'
 
-
 type Props = {}
 
 const Monaco = (props: PageProps) => {
@@ -27,17 +26,16 @@ const Monaco = (props: PageProps) => {
 
   return (
     <MainLayout auth={props.auth}>
-      <div className='grow flex flex-col max-w-7xl w-full'>
-        <div className='text-center text-4xl pb-4 max-w-7xl w-full font-semibold'>Monaco Text Editor</div>
-        <div className='flex-grow flex flex-col h-10'>
-
+      <div className="flex w-full max-w-7xl grow flex-col">
+        <div className="w-full max-w-7xl pb-4 text-center text-4xl font-semibold">Monaco Text Editor</div>
+        <div className="flex h-10 flex-grow flex-col">
           {isThemeLoaded ? (
             <div className="flex h-full flex-col">
               <Editor
                 value={editorText as string}
                 theme="github-dark"
                 className="flex-grow p-4"
-                language='markdown'
+                language="markdown"
                 loading={''}
                 width={'100%'}
                 height={'100%'}

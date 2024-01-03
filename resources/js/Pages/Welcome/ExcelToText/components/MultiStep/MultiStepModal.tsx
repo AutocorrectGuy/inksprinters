@@ -35,11 +35,11 @@ const MultiStepModal = ({ dialogRef }: { dialogRef: RefObject<HTMLDialogElement>
       closeModal()
     }
 
-    window.addEventListener('keydown', handleEscape);
+    window.addEventListener('keydown', handleEscape)
     return () => {
-      window.removeEventListener('keydown', handleEscape);
-    };
-  }, [dialogRef, closeModal]);
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [dialogRef, closeModal])
 
   return (
     <dialog ref={dialogRef} className="modal">
