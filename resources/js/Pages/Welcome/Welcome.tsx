@@ -39,7 +39,7 @@ const Welcome = ({ auth }: PageProps<{ laravelVersion: string; phpVersion: strin
                   autoFocus
                   placeholder="YOUR KEYWORDS HERE"
                   className={`input pl-20 py-12 text-4xl w-full bg-gray-800 shadow-2xl shadow-[#0000007c]
-                placeholder:text-gray-400 placeholder:font-medium border-none rounded-xl m-0 outline outline-[#631633]`}
+                placeholder:text-gray-400 placeholder:font-medium border-[3px] outline-transparent ring-0 focus:ring-0 focus:outline-none rounded-xl m-0 outline focus:border-[#631633]`}
                 />
               </div>
             </div>
