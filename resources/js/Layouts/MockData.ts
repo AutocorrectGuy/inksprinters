@@ -51,20 +51,5 @@ export const siderBarButtons: SiderBarButtonProps[] = [
     icon: faUser,
     label: 'Profile',
     href: '#profile',
-  },
-  {
-    icon: faCommentDots,
-    label: 'Messages',
-    href: '#messages',
-  },
-  {
-    icon: faEnvelope,
-    label: 'Emails',
-    href: '#emails',
-  },
-  {
-    icon: faFile,
-    label: 'Documents',
-    href: '#documents',
-  },
+  }
 ]

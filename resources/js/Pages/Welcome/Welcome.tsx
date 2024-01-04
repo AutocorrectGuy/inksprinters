@@ -54,7 +54,7 @@ const Welcome = ({ auth }: PageProps<{ laravelVersion: string; phpVersion: strin
     <MainLayout auth={auth}>
       {/* pr-80 lets to center everything */}
       {/* Main content */}
-      <div className="flex grow flex-col items-center justify-center pb-40 pr-20 overflow-hidden">
+      <div className="flex grow flex-col items-center justify-center overflow-hidden pb-40 pr-20">
         <div className="flex w-full items-center justify-center">
           <HeroInputField />
         </div>

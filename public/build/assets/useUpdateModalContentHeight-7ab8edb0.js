@@ -1,0 +1,1 @@
+import{r as n}from"./app-47f8807c.js";const r=24,u=t=>{const[i,o]=n.useState(0),e=()=>{if(!t.current)return;const s=t.current.clientHeight;o(window.innerHeight-100-s-r*2)};return n.useEffect(()=>(window.addEventListener("resize",e),e(),()=>{window.removeEventListener("resize",e)}),[t,r]),i};export{u as default};
