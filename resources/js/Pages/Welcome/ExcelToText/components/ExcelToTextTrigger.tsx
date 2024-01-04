@@ -42,7 +42,7 @@ const ExcelToTextButton = () => {
       ) : (
         // Dnd button that allows user to provide an excel file to this editor
         <div {...getRootProps({ role: 'test' })} className="relative">
-          <button className="btn btn-outline btn-sm mb-20 rounded-md border-green-500 text-green-500 focus:ring-green-500">
+          <button className="btn btn-outline btn-md text-lg rounded-md border-green-500 text-green-500 focus:ring-green-500">
             <input {...getInputProps()} />
             <p>{isDragActive ? 'Release to drop' : 'Excel to text'}</p>
           </button>

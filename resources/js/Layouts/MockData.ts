@@ -1,31 +1,30 @@
 import { SiderBarButtonProps } from './MainLayout'
 
 import {
-  faAddressBook,
-  faBell,
   faBookmark,
   faCommentDots,
   faEnvelope,
   faFile,
   faHeart,
-  faUser,
+  faFileExcel,
+  faBuilding
 } from '@fortawesome/free-regular-svg-icons'
 
 export const siderBarButtons: SiderBarButtonProps[] = [
   {
-    icon: faAddressBook,
-    label: 'Address Book',
-    href: '#address-book',
-  },
-  {
-    icon: faBell,
-    label: 'Notifications',
-    href: '#notifications',
+    icon: faBuilding,
+    label: 'Home',
+    href: '/',
   },
   {
     icon: faBookmark,
-    label: 'Bookmarks',
-    href: '#bookmarks',
+    label: 'About',
+    href: '#about',
+  },
+  {
+    icon: faFileExcel,
+    label: 'Conver Excel',
+    href: '#tools/convert-excel',
   },
   {
     icon: faCommentDots,
@@ -46,10 +45,5 @@ export const siderBarButtons: SiderBarButtonProps[] = [
     icon: faHeart,
     label: 'Favorites',
     href: '#favorites',
-  },
-  {
-    icon: faUser,
-    label: 'Profile',
-    href: '#profile',
   }
 ]

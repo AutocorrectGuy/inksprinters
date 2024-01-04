@@ -3,16 +3,16 @@ import { IconDefinition, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
 import GROUND_SVG from '../../images/Pages/Welcome/inksprinters-ground.svg'
 import SCRUMBLED_PAPER_JPG from '../../images/Pages/Welcome/scrumbled-paper.png'
-import LOGO_WITH_TEXT from '../../images/Pages/Welcome/logo-with-text.svg'
 import HEXAGONS from '../../images/Pages/Welcome/hexagons.svg'
 import { PageProps } from '@/types'
 import { ReactNode, useEffect } from 'react'
-import { Head, Link } from '@inertiajs/react'
+import { Head, Link, usePage } from '@inertiajs/react'
 import TopNav from '@/Pages/Welcome/components/TopNav'
 import { siderBarButtons } from './MockData'
+import { styles } from './config/MainLayout.config'
 
 export type SiderBarButtonProps = {
-  icon: IconDefinition
+  icon: IconDefinition | string
   label: string
   href: string
   isFirstChild?: boolean
@@ -21,21 +21,27 @@ export type SiderBarButtonProps = {
 
 const SidebarButton = ({ icon, label, href, isFirstChild, isLastChild }: SiderBarButtonProps) => {
   const borderRadiusClass = isFirstChild
-    ? 'rounded-t-[20px] border-b-[6px] border-b-gray-950 pt-4'
+    ? 'rounded-tr-[24px] border-b-[6px] border-b-[#242C29] pt-4'
     : isLastChild
-      ? 'rounded-b-[20px] pb-4'
-      : 'border-b-[6px] border-b-gray-950'
+      ? 'rounded-br-[24px] pb-4'
+      : 'border-b-[6px] border-b-[#242C29]'
 
   return (
     <Link
       href={href}
-      className={`${borderRadiusClass} flex w-80 items-center justify-between border-b-black bg-gradient-to-r 
+      className={`${borderRadiusClass} flex items-center justify-between border-[#242C29] bg-gradient-to-r 
       from-[#000522]/80 from-15% via-[#390d19]/80 to-[#8f1d1d]/80 py-3 hover:from-[#c8c3bb] 
       hover:via-[#c8c3bb] hover:to-[#c8c3bb] hover:text-[#1b1b1a] `}
+      style={{ width: styles.sidebarWidth }}
     >
       <div className="flex w-full items-center">
         <div className="w-28">
-          <FontAwesomeIcon icon={icon} className="mx-6 h-7 w-7" />
+          {
+            typeof icon === 'string'
+              ? <img src={icon} className="mx-6 h-7 w-7" />
+              : <FontAwesomeIcon icon={icon} className="mx-6 h-7 w-7" />
+          }
+
         </div>
         <div className="w-full truncate">{label}</div>
       </div>
@@ -63,9 +69,13 @@ const innerShadow = {
 }
 
 export default function MainLayout({ auth, children }: PageProps & { children: ReactNode }) {
+
+  const { url } = usePage()
+
   useEffect(() => {
-    console.log('rerendered')
+    console.log(url)
   }, [])
+
   return (
     <>
       <Head title="Welcome" />
@@ -78,17 +88,25 @@ export default function MainLayout({ auth, children }: PageProps & { children: R
               'repeating-linear-gradient(45deg, #00000015 20px, #00000015 22px, transparent 22px, transparent 42px)',
           }}
         />
+        {url !== '/' && <div className="fixed -z-10 h-screen top-28 border-r-[3px] border-r-[#ffffff90]" style={{ marginLeft: styles.sideNavWidth }} />}
+
         <img src={GROUND_SVG} className="absolute bottom-0 right-0 -z-10 w-full" />
+
         <div className="absolute bottom-0 left-0 right-0 w-full bg-black/30 py-2 text-center text-xl font-bold text-[#c8c9c9]">
           INKSPRINTERS 2023-2024
         </div>
+
         <TopNav auth={auth} />
-        <aside className="fixed left-6 top-6 z-40 h-screen w-80">
-          <img src={LOGO_WITH_TEXT} className="mb-6 w-full" />
+
+        {/* Sidebar nav */}
+        <aside className="fixed z-40 h-screen top-28"
+          style={{ width: styles.sideNavWidth }}
+        >
           <div
-            className="rounded-[20px] outline outline-[3px] outline-[#c8c9c9d5]"
+            className="rounded-r-[24px] outline outline-[3px] outline-[#c8c9c9d5] mt-24"
             style={{
               ...innerShadow,
+              width: styles.sidebarWidth,
               backgroundImage: `url(${SCRUMBLED_PAPER_JPG})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '200% 200%',
@@ -110,7 +128,14 @@ export default function MainLayout({ auth, children }: PageProps & { children: R
         </aside>
 
         {/* Main content */}
-        <div className="ml-[370px] flex min-h-screen flex-grow flex-col pt-20 text-neutral-300">{children}</div>
+        <div className="flex min-h-screen flex-grow flex-col text-neutral-300"
+          style={{
+            marginLeft: styles.sideNavWidth,
+            paddingTop: styles.topNavHeigh
+          }}
+        >
+          {children}
+        </div>
       </div>
     </>
   )
