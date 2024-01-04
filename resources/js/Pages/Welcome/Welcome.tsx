@@ -19,7 +19,7 @@ const HeroInputField = () => {
 
   return (
     <div className="relative flex w-full max-w-[750px] items-center">
-      <img src={RUNNER_SVG} className="absolute right-0 -z-10 translate-x-1/2 overflow-hidden" />
+      <img src={RUNNER_SVG} className="absolute right-0 -z-10 translate-x-1/2 overflow-hidden h-[512px]" />
 
       <div
         className="flex h-40 w-full items-center rounded-[16px] bg-neutral-800 text-[#C7C3BB] outline outline-2 outline-[#666666] focus:border-[#C7C3BB] focus:outline-[#C7C3BB] focus:ring-[#C7C3BB]"
