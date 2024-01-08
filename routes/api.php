@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EncodingTextFilesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('products', function () {
-    return response(['Product 1', 'Product 2', 'Product 3'],200);
+    return response(['Hello, world!', 'This is test response from', 'Laravel backend'],200);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// 
+Route::post('/download-encoded-text-file', [EncodingTextFilesController::class, 'downloadEncodedTextFile']);
+
