@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/reactapp/static/css/main.46c0e85f.css",
-    "main.js": "/reactapp/static/js/main.3cd334da.js",
+    "main.css": "/reactapp/static/css/main.80a6b847.css",
+    "main.js": "/reactapp/static/js/main.3fb54542.js",
     "static/js/792.db8e2cb0.chunk.js": "/reactapp/static/js/792.db8e2cb0.chunk.js",
     "static/media/scrumbled-paper.png": "/reactapp/static/media/scrumbled-paper.793207bd07001e5b0c6f.png",
     "static/media/inksprinters-runner.svg": "/reactapp/static/media/inksprinters-runner.30c9bbc9ae005c95eb9ad45d046bb862.svg",
@@ -9,11 +9,11 @@
     "static/media/logo-with-text.svg": "/reactapp/static/media/logo-with-text.1fbeb1137efd1293f65edee7a6800a55.svg",
     "static/media/hexagons.svg": "/reactapp/static/media/hexagons.c233f8117ed6a17ba66ff7386ac2b8e4.svg",
     "index.html": "/reactapp/index.html",
-    "main.46c0e85f.css.map": "/reactapp/static/css/main.46c0e85f.css.map",
-    "main.3cd334da.js.map": "/reactapp/static/js/main.3cd334da.js.map"
+    "main.80a6b847.css.map": "/reactapp/static/css/main.80a6b847.css.map",
+    "main.3fb54542.js.map": "/reactapp/static/js/main.3fb54542.js.map"
   },
   "entrypoints": [
-    "static/css/main.46c0e85f.css",
-    "static/js/main.3cd334da.js"
+    "static/css/main.80a6b847.css",
+    "static/js/main.3fb54542.js"
   ]
 }
