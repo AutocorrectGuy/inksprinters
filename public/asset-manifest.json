@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.59eb2bbc.css",
-    "main.js": "/static/js/main.bc9862f8.js",
+    "main.css": "/static/css/main.bc65ca8a.css",
+    "main.js": "/static/js/main.8d5430af.js",
     "static/js/792.db8e2cb0.chunk.js": "/static/js/792.db8e2cb0.chunk.js",
     "static/media/scrumbled-paper.png": "/static/media/scrumbled-paper.793207bd07001e5b0c6f.png",
     "static/media/inksprinters-runner.svg": "/static/media/inksprinters-runner.30c9bbc9ae005c95eb9ad45d046bb862.svg",
@@ -9,11 +9,11 @@
     "static/media/logo-with-text.svg": "/static/media/logo-with-text.1fbeb1137efd1293f65edee7a6800a55.svg",
     "static/media/hexagons.svg": "/static/media/hexagons.c233f8117ed6a17ba66ff7386ac2b8e4.svg",
     "index.html": "/index.html",
-    "main.59eb2bbc.css.map": "/static/css/main.59eb2bbc.css.map",
-    "main.bc9862f8.js.map": "/static/js/main.bc9862f8.js.map"
+    "main.bc65ca8a.css.map": "/static/css/main.bc65ca8a.css.map",
+    "main.8d5430af.js.map": "/static/js/main.8d5430af.js.map"
   },
   "entrypoints": [
-    "static/css/main.59eb2bbc.css",
-    "static/js/main.bc9862f8.js"
+    "static/css/main.bc65ca8a.css",
+    "static/js/main.8d5430af.js"
   ]
 }
