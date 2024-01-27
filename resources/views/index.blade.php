@@ -11,6 +11,6 @@
     <div id="root"></div> <!-- React will attach to this div -->
 
     <!-- Include the main React JavaScript file -->
-    <script src="{{ asset('static/js/main.62976a25.js') }}"></script>
+    <script src="{{ asset('static/js/main.7e63b142.js') }}"></script>
 </body>
 </html>
